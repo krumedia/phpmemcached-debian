@@ -1,0 +1,55 @@
+#!/usr/bin/make -f
+# Uncomment this to turn on verbose mode.
+#export DH_VERBOSE=1
+
+REVISION := $(shell head -1 debian/changelog | sed 's/.*(//;s/).*//;s/.*-//')
+
+build-arch:
+
+build: build-indep
+build-indep: build-stamp
+build-stamp:
+	dh_testdir
+	touch build-stamp
+
+clean: 
+	dh_testdir
+	dh_testroot
+	rm -f build-stamp
+	dh_clean 
+	debconf-updatepo
+
+install: build
+	dh_testdir
+	dh_testroot
+	dh_prep
+	dh_installdirs
+	dh_install
+	# include Debian marker in version string
+	# do not change Loader::CURRENT_VERSION, it’s used for version-comparations
+	sed -i -e "s|CURRENT_VERSION|CURRENT_VERSION . 'deb$(REVISION)'|" \
+	    debian/phpmemcachedadmin/usr/share/phpmemcachedadmin/View/Header.tpl
+	# edit config and tmp-path
+	sed -i -e 's|Temp/|/var/lib/phpmemcachedadmin/tmp/|' \
+	    debian/phpmemcachedadmin/etc/phpmemcachedadmin/Memcache.php
+	sed -i -e 's|./Config/|/etc/phpmemcachedadmin/|' \
+	    debian/phpmemcachedadmin/usr/share/phpmemcachedadmin/Library/Configuration/Loader.php
+
+# Build architecture-independent files here.
+binary-indep: build install
+	dh_testdir
+	dh_testroot
+	dh_installdebconf
+	dh_installman
+	dh_compress
+	dh_fixperms
+	dh_installdeb
+	dh_gencontrol
+	dh_md5sums
+	dh_builddeb
+
+# Build architecture-dependent files here.
+binary-arch:
+
+binary: binary-indep binary-arch
+.PHONY: build clean binary-indep binary-arch binary install

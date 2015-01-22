@@ -1,0 +1,14 @@
+*.php		usr/share/phpmemcachedadmin
+
+Config/*	etc/phpmemcachedadmin
+Library		usr/share/phpmemcachedadmin
+Public		usr/share/phpmemcachedadmin
+Temp/.version	var/lib/phpmemcachedadmin/tmp
+View		usr/share/phpmemcachedadmin
+
+debian/conf/*	etc/phpmemcachedadmin
+
+debian/icons/favicon.ico usr/share/phpmemcachedadmin
+debian/icons/48/phpmemcachedadmin.png usr/share/icons/hicolor/48x48/apps
+debian/icons/32/phpmemcachedadmin.png usr/share/icons/hicolor/32x32/apps
+debian/icons/16/phpmemcachedadmin.png usr/share/icons/hicolor/16x16/apps

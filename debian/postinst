@@ -1,0 +1,91 @@
+#!/bin/sh
+# postinst script for phpmemcachedadmin
+
+set -e
+
+avahi_install() {
+	if [ -d /etc/avahi/services/ -a ! -e /etc/avahi/services/phpmemcachedadmin.service -a ! -L /etc/avahi/services/phpmemcachedadmin.service ] ; then
+		ln -s ../../phpmemcachedadmin/phpmemcachedadmin.service /etc/avahi/services/
+	fi
+}
+
+desktop_install() {
+	if [ -d /usr/share/applications/ -a ! -e /usr/share/applications/phpmemcachedadmin.desktop -a ! -L /usr/share/applications/phpmemcachedadmin.desktop ] ; then
+		ln -s /etc/phpmemcachedadmin/phpmemcachedadmin.desktop /usr/share/applications/
+	fi
+}
+
+lighttpd_install() {
+	if [ ! -f /etc/lighttpd/conf-available/50-phpmemcachedadmin.conf ] ; then
+		if which lighty-enable-mod >/dev/null 2>&1 ; then
+			ln -s ../../phpmemcachedadmin/lighttpd.conf /etc/lighttpd/conf-available/50-phpmemcachedadmin.conf
+			avahi_install
+			desktop_install
+		else
+			echo "Lighttpd not installed, skipping"
+		fi
+	fi
+}
+
+apache_install() {
+	mkdir -p /etc/apache2/conf-available
+	ln -sf ../../phpmemcachedadmin/apache.conf /etc/apache2/conf-available/phpmemcachedadmin.conf
+	
+	COMMON_STATE=$(dpkg-query -f '${Status}' -W 'apache2.2-common' 2>/dev/null | awk '{print $3}' || true)
+
+	if [ -e /usr/share/apache2/apache2-maintscript-helper ] ; then
+		. /usr/share/apache2/apache2-maintscript-helper
+		apache2_invoke enconf phpmemcachedadmin
+	elif [ "$COMMON_STATE" = "installed" ] || [ "$COMMON_STATE" = "unpacked" ] ; then
+		[ -d /etc/apache2/conf.d/ ] && [ ! -L /etc/apache2/conf.d/phpmemcachedadmin.conf ] && ln -s ../conf-available/phpmemcachedadmin.conf /etc/apache2/conf.d/phpmemcachedadmin.conf
+	fi
+
+	avahi_install
+	desktop_install
+}
+
+. /usr/share/debconf/confmodule
+
+if [ "$1" = "configure" ]; then
+
+	# Fixup permissions 
+	
+	# Only on new installations
+	if [ "$2" = "" ]; then
+		if [ -f /etc/phpmemcachedadmin/Memcache.php ]; then
+			chgrp www-data /etc/phpmemcachedadmin/Memcache.php
+			chmod 0660 /etc/phpmemcachedadmin/Memcache.php
+		fi
+	fi
+	if ! dpkg-statoverride --list /var/lib/phpmemcachedadmin/tmp >/dev/null; then
+		chown -R www-data:www-data	/var/lib/phpmemcachedadmin/tmp
+	fi
+
+	# Configure Apache
+	db_get phpmyadmin/reconfigure-webserver
+
+	webservers="$RET"
+
+	for webserver in $webservers; do
+		webserver=${webserver%,}
+		if [ "$webserver" = "lighttpd" ] ; then
+			lighttpd_install
+		else
+			apache_install $1
+		fi
+		# Reload webserver in any case, configuration might have changed
+		# Redirection of 3 is needed because Debconf uses it and it might 
+		# be inherited by webserver. See bug #446324.
+		if [ -f /etc/init.d/$webserver ] ; then
+			if [ -x /usr/sbin/invoke-rc.d ]; then
+				invoke-rc.d $webserver reload 3>/dev/null || true
+			else
+				/etc/init.d/$webserver reload 3>/dev/null || true
+			fi
+		fi
+	done
+fi
+
+#DEBHELPER#
+
+exit 0

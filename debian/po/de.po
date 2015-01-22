@@ -1,0 +1,105 @@
+# Translation of phpmyadmin debconf templates to German
+# Copyright (C) Daniel Knabl <daniel@knabl.com>, 2006.
+# Copyright (C) Helge Kreutzmann <debian@helgefjell.de>, 2007.
+# This file is distributed under the same license as the phpmyadmin package.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: phpmemcachedadmin 1.2.2-1\n"
+"Report-Msgid-Bugs-To: phpmemcachedadmin@packages.debian.org\n"
+"POT-Creation-Date: 2015-01-13 14:46+0100\n"
+"PO-Revision-Date: 2015-01-13 15:40+0100\n"
+"Last-Translator: Matthias Blümel <bluemel@krumedia.de>\n"
+"Language-Team: de <bluemel@krumedia.de>\n"
+"Language: de\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.7.3\n"
+
+#. Type: multiselect
+#. Description
+#: ../templates:1001
+msgid "Web server to reconfigure automatically:"
+msgstr "Webserver, die automatisch konfiguriert werden sollen:"
+
+#. Type: multiselect
+#. Description
+#: ../templates:1001
+msgid ""
+"Please choose the web server that should be automatically configured to run "
+"phpMemcachedAdmin."
+msgstr ""
+"Bitte wählen Sie den Webserver aus, der automatisch zum Betrieb von "
+"phpMemcachedAdmin konfiguriert werden soll."
+
+#~ msgid "Username for web-based setup system:"
+#~ msgstr "Benutzername für die webbasierte Installation:"
+
+#~ msgid ""
+#~ "The setup system for phpMyAdmin may be used, after installation, from "
+#~ "http://localhost/phpmyadmin/setup/index.php."
+#~ msgstr ""
+#~ "Nach der Installation kann das Einrichtungssystem von phpMyAdmin unter "
+#~ "http://localhost/phpmyadmin/setup/index.php verwendet werden."
+
+#~ msgid ""
+#~ "Access to this system requires identification with a username and a "
+#~ "password."
+#~ msgstr ""
+#~ "Zugriff auf dieses System benötigt die Identifikation mit einem "
+#~ "Benutzernamen und einem Passwort."
+
+#~ msgid ""
+#~ "If you leave this field empty, the default username ('admin') will be "
+#~ "used."
+#~ msgstr ""
+#~ "Falls Sie dieses Feld leer lassen, wird der Standardbenutzernamen »admin« "
+#~ "verwendet."
+
+#~ msgid "Password for web-based setup system:"
+#~ msgstr "Passwort für die webbasierte Installation:"
+
+#~ msgid ""
+#~ "Usernames and passwords may be managed with the `htpasswd' command and "
+#~ "are stored in /etc/phpmyadmin/htpasswd.setup."
+#~ msgstr ""
+#~ "Die Benutzernamen und Passwörter können mittels »htpasswd«-Befehl "
+#~ "verwaltet werden. Sie werden in der Datei /etc/phpmyadmin/htpasswd.setup "
+#~ "gespeichert."
+
+#~ msgid ""
+#~ "If you leave this field empty, access to the web-based setup will be "
+#~ "disabled."
+#~ msgstr ""
+#~ "Falls Sie dieses Feld leer lassen, wird der Zugriff auf die webbasierte "
+#~ "Installation deaktiviert."
+
+#~ msgid ""
+#~ "phpMyAdmin supports any web server that PHP does, but this automatic "
+#~ "configuration process only supports Apache."
+#~ msgstr ""
+#~ "phpMyAdmin unterstützt jeden Webserver der PHP unterstützt, diese "
+#~ "automatische Konfiguration unterstützt jedoch nur Apache."
+
+#~ msgid ""
+#~ "phpMyAdmin comes with a setup script that can help you with creating a "
+#~ "configuration. The script is located at http://localhost/phpmyadmin/setup/"
+#~ "index.php. For security reasons it requires authorization."
+#~ msgstr ""
+#~ "phpMyAdmin kommt mit einem Installationsskript, welches Ihnen beim "
+#~ "Erstellen der Konfiguration hilft. Das Skript befindet sich unter http://"
+#~ "localhost/phpmyadmin/setup/index.php. Aus Sicherheitsgründen erfordert es "
+#~ "Autorisierung."
+
+#~ msgid "Do you want me to restart ${webserver} now?"
+#~ msgstr "Möchten Sie, dass ich ${webserver} jetzt neu starte?"
+
+#~ msgid ""
+#~ "Remember that in order to activate the new configuration ${webserver} has "
+#~ "to be restarted. You can also restart ${webserver} by manually executing /"
+#~ "etc/init.d/${webserver} restart"
+#~ msgstr ""
+#~ "Beachten Sie, dass ${webserver} neu gestartet werden muss, um die neue "
+#~ "Konfiguration zu verwenden. Sie können ${webserver} auch mit dem Befehl »/"
+#~ "etc/init.d/${webserver} restart« neu starten."

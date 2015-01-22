@@ -1,0 +1,29 @@
+This is a prepackaged version of phpMemcachedAdmin: a Graphic stand-alone
+administration for memcached to monitor and debug purpose over the WWW.
+It was debianised from sratch by Matthias Blümel <bluemel@krumedia.de>,
+using files obtained from https://code.google.com/p/phpmemcacheadmin/
+
+More information about phpMemcachedAdmin is available from
+https://code.google.com/p/phpmemcacheadmin/
+
+Copyright and licence notice:
+
+    Copyright 2010 Cyrille Mahieux
+
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+
+        http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+
+On any Debian system, you can find the complete text of the Apache License,
+Version 2.0 in the file /usr/share/common-licenses/Apache-2.0
+
+The Debian packaging of phpMemcachedAdmin is (c) 2014 Matthias Blümel licenced
+under the same licence as phpMemcachedAdmin itself.

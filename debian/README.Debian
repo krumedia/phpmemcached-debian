@@ -1,0 +1,34 @@
+phpmemcachedadmin for Debian
+---------------------
+
+
+USAGE
+
+  The application will be available at http://localhost/phpmemcachedadmin/
+  after install if you use one of supported web servers (Apache and Lighttpd
+  at time of writing this). Please note that you need to have enabled PHP
+  support in your webserver (for Apache you can do this by a2enmod php5, for
+  Lighttpd by lighty-enable-mod fastcgi) and to allow access from foreign hosts
+  if you don’t access from localhost.
+
+
+
+CONFIGURATION
+
+  The package installs a default configuration in /etc/phpmemcachedadmin/, including
+  a default apache.conf, which is optionally symlinked from your Apache config.
+
+SECURITY
+
+  The service is only accessible from localhost by default. If you need to change
+  this, see your corresponding webserver-configuration in /etc/phpmemcachedadmin/
+  
+  Please note, that the Configuration is editable in the Webinterface. If you want
+  to prevent this, execute 
+    chmod 640 /etc/phpmemcachedadmin/Memcache.php
+  to secure this.
+  
+
+ -- Thijs Kinkhorst <thijs@debian.org>  Mon, 21 Apr 2007 12:10:15 +0200
+ -- Michal Čihař <nijel@debian.org>  Wed, 14 Oct 2009 10:32:31 +0200
+ -- Matthias Blümel <bluemel@krumedia.de> The, 13 Jan 2015 15:00:28 +0100

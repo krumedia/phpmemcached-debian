@@ -1,0 +1,4 @@
+etc/phpmemcachedadmin
+usr/share/phpmemcachedadmin
+var/lib/phpmemcachedadmin
+var/lib/phpmemcachedadmin/tmp

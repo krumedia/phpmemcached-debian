@@ -1,0 +1,8 @@
+[Desktop Entry]
+Name=phpMemcachedAdmin
+Comment=Memcached statistics over web
+Exec=sensible-browser http://localhost/phpmemcachedadmin/
+Terminal=false
+Type=Application
+Icon=phpmemcachedadmin
+Categories=Development;
