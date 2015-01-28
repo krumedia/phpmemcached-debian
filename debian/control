@@ -15,7 +15,7 @@ Recommends: apache2 | lighttpd | httpd,
  memcached | memcache
 Suggests: www-browser
 Description: Graphic administration for memcached to monitor and debug
- This program allows to see in real-time (top-like) or from the start of the
+ This program allows one to see in real-time (top-like) or from the start of the
  server, stats for get, set, delete, increment, decrement, evictions,
  reclaimed, cas command, as well as server stats (network, items, server
  version) with googlecharts and server internal configuration
@@ -26,5 +26,5 @@ Description: Graphic administration for memcached to monitor and debug
  Another part can execute commands to any memcached server : get, set, delete,
  flush_all, as well as execute any commands (like stats) with telnet
  .
- To extract these informations, phpMemcacheAdmin uses, as you wish, direct
+ To extract this information, phpMemcacheAdmin uses, as you wish, direct
  communication with server, PECL Memcache or PECL Memcached API.
