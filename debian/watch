@@ -1,2 +1,2 @@
 version=3
-http://code.google.com/p/phpmemcacheadmin/downloads/list?can=1 .*/phpmemcacheadmin-(\d\S*)\.(?:zip|tgz|tbz|txz|(?:tar\.(?:gz|bz2|xz)))
+http://code.google.com/p/phpmemcacheadmin/downloads/list?can=1 .*/phpMem(?:C|c)ache[d]?Admin-([\d\.]+(?:-beta)?)-?r?(?:\d+)\.(?:zip|tgz|tbz|txz|(?:tar\.(?:gz|bz2|xz)))
