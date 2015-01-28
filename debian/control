@@ -3,7 +3,8 @@ Maintainer: Matthias Blümel <bluemel@krumedia.de>
 Section: misc
 Priority: extra
 Standards-Version: 3.9.6
-Build-Depends: debhelper (>=9)
+Build-Depends: debhelper (>=9),
+ po-debconf
 Homepage: https://code.google.com/p/phpmemcacheadmin/
 
 Package: phpmemcachedadmin
