@@ -1,2 +1,3 @@
 version=3
+opts=uversionmangle=s/-/~/ \
 http://code.google.com/p/phpmemcacheadmin/downloads/list?can=1 .*/phpMem(?:C|c)ache[d]?Admin-([\d\.]+(?:-beta)?)-?r?(?:\d+)\.(?:zip|tgz|tbz|txz|(?:tar\.(?:gz|bz2|xz)))
