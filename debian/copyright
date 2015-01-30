@@ -1,6 +1,6 @@
 This is a prepackaged version of phpMemcachedAdmin: a Graphic stand-alone
 administration for memcached to monitor and debug purpose over the WWW.
-It was debianised from sratch by Matthias Blümel <bluemel@krumedia.de>,
+It was debianised from sratch by Matthias Blümel <blaimi@blaimi.de>,
 using files obtained from https://code.google.com/p/phpmemcacheadmin/
 
 More information about phpMemcachedAdmin is available from
